@@ -15,7 +15,12 @@ public class Fibonacci extends Progression {
 	@Override
 	public double nextValue() {
         // add the necessary code here
-//		System.out.println(current + "," + prev + "," + this.firstValue());
+		try {
+			this.firstValue();
+		}
+		catch(IllegalStateException e) {
+			e.getMessage();
+		}
 		current = prev + current;
 		prev = current - prev;
 		return current;

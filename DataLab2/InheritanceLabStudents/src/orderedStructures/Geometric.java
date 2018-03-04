@@ -11,6 +11,12 @@ public class Geometric extends Progression {
 	
 	@Override
 	public double nextValue() {
+		try {
+			super.firstValue();
+		}
+		catch(IllegalStateException e) {
+			e.getMessage();
+		}
 		current = current * commonFactor; 
 		return current;
 	}
