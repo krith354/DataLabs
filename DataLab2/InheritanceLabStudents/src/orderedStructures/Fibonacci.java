@@ -15,12 +15,6 @@ public class Fibonacci extends Progression {
 	@Override
 	public double nextValue() {
         // add the necessary code here
-		try {
-			this.firstValue();
-		}
-		catch(IllegalStateException e) {
-			e.getMessage();
-		}
 		current = prev + current;
 		prev = current - prev;
 		return current;
@@ -31,6 +25,10 @@ public class Fibonacci extends Progression {
 		double value = super.firstValue(); 
 		prev = 0; 
 		return value; 
+	}
+	
+	public boolean equals(Object o) {
+		return ((Fibonacci) o).firstValue() == this.firstValue() && ((Fibonacci) o).prev == this.prev;
 	}
 
 }

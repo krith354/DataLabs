@@ -32,5 +32,9 @@ public class Geometric extends Progression {
 		double value = (this.firstValue())*Math.pow(this.commonFactor, n-1);
 		return value;
 	}
+	
+	public boolean equals(Object o) {
+		return ((Geometric) o).firstValue() == this.firstValue() && ((Geometric) o).commonFactor == this.commonFactor;
+	}
 
 }
