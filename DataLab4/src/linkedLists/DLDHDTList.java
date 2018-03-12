@@ -8,6 +8,7 @@ public class DLDHDTList<E> extends AbstractDLList<E> {
 	
 	public DLDHDTList() { 
 		// ADD CODE HERE to generate empty linked list of this type 
+		this.makeEmpty();
 	}
 	
 	public void addFirstNode(Node<E> nuevo) {
@@ -98,6 +99,9 @@ public class DLDHDTList<E> extends AbstractDLList<E> {
 	 */
 	public void makeEmpty() { 
 		// TODO
+		header.clean();
+		trailer.clean();
+		length = 0;
 	}
 		
 	protected void finalize() throws Throwable {
