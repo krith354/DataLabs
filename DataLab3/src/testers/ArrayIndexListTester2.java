@@ -10,10 +10,20 @@ public class ArrayIndexListTester2 {
 		Random r = new Random(5);   // fixing seed of random sequence to 5
 		
 		ArrayIndexList<Integer> list = new ArrayIndexList<>(); 
+		ArrayIndexList<Integer> list2 = new ArrayIndexList<>(); 
+		ArrayIndexList<Integer> list3 = new ArrayIndexList<>(); 
 		for (int i=0; i<15; i++) 
 			list.add(r.nextInt(100));
 		showList(list, " : THE ORIGINAL LIST."); 
-		
+		list.reverse();
+		showList(list, " : THE REVERSED LIST.");
+		list2.add(3);list2.add(2);
+		showList(list2, " : THE ORIGINAL LIST."); 
+		list2.reverse();
+		showList(list2, " : THE REVERSED LIST.");
+		showList(list3, " : THE ORIGINAL LIST."); 
+		list3.reverse();
+		showList(list3, " : THE REVERSED LIST.");
 		Object[] a1 = list.toArray(); 
 		showArray(a1, "a1 after executing a1 = list.toArray().");
 		

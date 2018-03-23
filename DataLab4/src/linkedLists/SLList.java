@@ -134,6 +134,21 @@ public class SLList<E> extends AbstractSLList<E> {
 		return head;
 	}
 	
+	public static void removeEven(SLList<Integer> list) {
+		if(list.length() <= 1) {
+			return;
+		}
+		
+		SNode<Integer> oddN = (SNode<Integer>) list.getFirstNode();
+		SNode<Integer> evenN =  new SNode<>();
+		while(oddN.getNext() != null) {
+			evenN = oddN.getNext();
+			oddN.setNext(evenN.getNext());
+			evenN.clean();
+			oddN = oddN.getNext();
+		}
+	}
+	
 	/**
 	 * Prepares every node so that the garbage collector can free 
 	 * its memory space, at least from the point of view of the

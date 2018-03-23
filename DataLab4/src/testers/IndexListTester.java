@@ -33,8 +33,7 @@ public class IndexListTester {
 			list.add(j, i); 
 		}
 		
-		showList(list); 
-
+		showList(list);
 
 		showListAfterDeleting(list, 4); 
 		showListAfterDeleting(list, 2); 

@@ -16,7 +16,15 @@ public class ArrayIndexList<E> implements IndexList<E> {
 		size = 0; 
 	} 
 	
-
+	public void reverse() {
+		E[] temp = (E[]) new Object[this.size];
+		if(this.size > 0) {
+			for(int i=this.size;i > 0;i--)
+				temp[this.size - i] = element[i-1];
+			element = temp;
+		}
+	}
+	
 	public void add(int index, E e) throws IndexOutOfBoundsException {
 		// ADD CODE AS REQUESTED BY EXERCISES
 		if(index > size() || index < 0) {
