@@ -27,7 +27,8 @@ public class Tester4 {
 		System.out.println("\n** Analyzing string: " + s); 
 		if (sa.isValidContent()) {
 			System.out.println(" The string is a valid symmetric string."); 
-			System.out.println(" The parenthesized expression is: " + sa.parenthesizedExpression()); 
+			System.out.print(" The parenthesized expression is: "); 
+			System.out.println(sa.parenthesizedExpression());
 		}
 		else 
 			System.out.println(" The string is not a valid symmetric string."); 

@@ -18,16 +18,23 @@ public class SLLStack<E> implements Stack<E>
 		if (isEmpty())
 			return null; 
 		
-		// ADD CODE TO COMPLETE IMPLEMENTATION
+		//ntr => node to remove
+		//etr => element to remove
 		
+		SNode<E> ntr = this.top;
+		E etr = ntr.getElement();
+		
+		this.top = ntr.getNext();
 		ntr.clean(); 
 		
+		size--;
 		return etr;
 	}
 
 	public void push(E e) {
-		// ADD CODE TO COMPLETE IMPLEMENTATION
-		
+		SNode<E> newNode = new SNode<>(e, this.top);
+		this.top = newNode;
+		size++;
 	}
 
 	public E top() {

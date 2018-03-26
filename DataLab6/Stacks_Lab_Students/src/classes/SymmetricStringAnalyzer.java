@@ -11,9 +11,27 @@ public class SymmetricStringAnalyzer {
 	 * @return true if it is; false, otherwise. 
 	 */
 	public boolean isValidContent() { 
-		// ADD MISSING CODE
 		
-		return true;  // need to change if necessary....
+		SLLStack<Character> stack = new SLLStack<Character>();
+	    for (int i=0; i < s.length(); i++) { 
+	        char c = s.charAt(i); 
+	        if (Character.isAlphabetic(c))
+	           if (Character.isUpperCase(c))
+	              stack.push(c); 
+	           else if (stack.isEmpty())
+	                 return false; 
+	               else {
+	                 char t = stack.top(); 
+	                 if (t == Character.toUpperCase(c))
+	                    stack.pop();  
+	                 else 
+	                    return false; 
+	                }
+	            else 
+	                return false; 
+	    }
+	    
+	    return stack.isEmpty();
 	}
 	
 	public String toString() { 
@@ -23,9 +41,18 @@ public class SymmetricStringAnalyzer {
 	public String parenthesizedExpression() 
 	throws StringIsNotSymmetricException 
 	{
-		// ADD MISSING CODE
-		
-		return null;  // need to change if necessary....
+		if(!this.isValidContent()) {
+			throw new StringIsNotSymmetricException();
+		}
+		for(int i=0;i<s.length();i++) {
+			char c = s.charAt(i);
+			if (Character.isUpperCase(c)) {
+				System.out.print("<" + c + "  ");
+			} else {
+				System.out.print(c + ">" + "  ");
+			}
+		}
+		return "";
 	}
 
 }
