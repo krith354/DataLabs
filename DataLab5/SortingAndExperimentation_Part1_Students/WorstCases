@@ -1,0 +1,25 @@
+Instructions:
+
+	"Try to find the worst cases for each sorting(except HeapSort)"
+	
+Bubble Sort:
+	This sorting algorithm's worst case is O(n^2). The array can be in descending order when asked for ascending.
+	
+	
+Selection Sort:
+	This sorting algorithm's worst case is O(n^2). The array can be completely unordered. 
+	
+	 
+Insertion Sort:
+	This sorting algorithm's worst case is O(n^2). The array can be completely unsorted huge 
+	different gap between the numbers. 
+	
+	
+Comb Sort:
+	This sorting algorithm's worst case is O(n^2). The array can be completely unsorted huge 
+	different gap between the numbers.
+	
+	
+Cocktail Sort:
+	This sorting algorithm's worst case is O(n^2). The array can be specifically order ascending to descending 
+	till the middle of the array and vice-versa from there on. 

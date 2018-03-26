@@ -3,8 +3,12 @@ package sortersTesterClasses;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
+import java.util.Scanner;
 
 import sorterClasses.BubbleSortSorter;
+import sorterClasses.CocktailSortSorter;
+import sorterClasses.CombSortSorter;
+import sorterClasses.HeapSortSorter;
 import sorterClasses.InsertionSortSorter;
 import sorterClasses.SelectionSortSorter;
 import interfaces.Sorter;
@@ -15,16 +19,30 @@ public class IntegerSorterTester {
 	private static ArrayList<Sorter<Integer>> sortersList = new ArrayList<>(); 
 	
 	public static void main(String[] args) { 
+		//Framework
+		System.out.println("Choose one of these sorting algorithms (type the number): ");
+		System.out.println("1. Bubble Sort\n2. Selection Sort\n3. Insertion Sort\n4. Heap Sort\n5. Comb Sort\n6. Cocktail Sort");
+		Scanner input = new Scanner(System.in);
+		int opt = input.nextInt();
+		if(opt>6 || opt<0) {
+			System.out.print("Please enter a number between 1 and 6: ");
+			while(opt>6 && opt<0) {
+				opt = input.nextInt();
+			}
+		}
 		sortersList.add(new BubbleSortSorter<Integer>()); 
 		sortersList.add(new SelectionSortSorter<Integer>()); 
 		sortersList.add(new InsertionSortSorter<Integer>()); 
+		sortersList.add(new HeapSortSorter<Integer>()); 
+		sortersList.add(new CombSortSorter<Integer>()); 
+		sortersList.add(new CocktailSortSorter<Integer>()); 
 		
-		test("Sorting Using Default Comparator<Integer>", null); 
-		test("Sorting Using IntegerComparator1", new IntegerComparator1()); 
-		test("Sorting Using IntegerComparator2", new IntegerComparator2()); 
+		test("Sorting Using Default Comparator<Integer>", null, opt); 
+		test("Sorting Using IntegerComparator1", new IntegerComparator1(), opt); 
+		test("Sorting Using IntegerComparator2", new IntegerComparator2(), opt); 
 	}
 	
-	private static void test(String msg, Comparator<Integer> cmp) { 
+	private static void test(String msg, Comparator<Integer> cmp, int opt) { 
 		rnd = new Random(101); 
 
 		System.out.println("\n\n*******************************************************");
@@ -35,14 +53,12 @@ public class IntegerSorterTester {
 		// generate random arrays is size i and test...
 		for (int i=1; i<=20; i += 5) { 
 			original = randomValues(i);
-			showArray("\n ---Original array of size " + i + " to sort:", original); 
-			
-			for (int s=0; s<sortersList.size(); s++) {
-				Sorter<Integer> sorter = sortersList.get(s); 
-			    arr = original.clone(); 
-			    sorter.sort(arr, cmp);
-			    showArray(sorter.getName() + ": ", arr); 
-			}
+			showArray("\n ---Original array of size " + i + " to sort:", original);
+			//framework
+			Sorter<Integer> sorter = sortersList.get(opt-1); 
+		    arr = original.clone(); 
+		    sorter.sort(arr, cmp);
+		    showArray(sorter.getName() + ": ", arr); 
 		}
 	}
 
