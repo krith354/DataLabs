@@ -37,6 +37,14 @@ public class DMComponent {
 			lol.add(nlist); 
 		}
 	}
+	/**
+	 * Removes an existing list in the system
+	 * @param name the name of the list
+	 */
+	public void removeList(int index) { 
+		
+		lol.remove(index); 
+	}
 	
 	/**
 	 * Adds a new element to a particular list.
@@ -81,8 +89,9 @@ public class DMComponent {
 		if (lol.isEmpty()) 
 			outS += "There are no lists yet in the system.\n"; 
 		else 
-			for (NamedList e : lol) {
-				outS += e.getName() + "\n";; 
+			for (int i=0;i<lol.size();i++) {
+				NamedList e = lol.get(i);
+				outS += " <" + (i+1) + "> " + e.getName() + "\n";; 
 			}
 		
 		IOComponent.getComponent().output(outS + "\n"); 
